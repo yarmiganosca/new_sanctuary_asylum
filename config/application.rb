@@ -25,6 +25,8 @@ module NewSanctuaryAsylum
     # NOTE:and app errors will still cause the server env to handle errors (Heroku), so these routes are only effective when the app is running
     config.exceptions_app = self.routes
 
+    config.eager_load_paths << Rails.root.join('lib')
+
     if !Rails.env.development? && !Rails.env.test?
       config.middleware.use Rack::Attack
     end
